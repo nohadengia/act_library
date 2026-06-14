@@ -1,0 +1,55 @@
+<%- include('../partials/header', { title: 'Members' }) %>
+
+<div class="page-head">
+  <h2>🧑‍🎓 Members</h2>
+  <a href="/members/add" class="btn">➕ Add Member</a>
+</div>
+
+<!-- search bar for members -->
+<form action="/members" method="GET" class="search-bar">
+  <input type="text" name="search" placeholder="Search by name, email or type..."
+         value="<%= search %>">
+  <button type="submit" class="btn">🔍 Search</button>
+  <% if (search) { %>
+    <a href="/members" class="btn btn-grey">Clear</a>
+  <% } %>
+</form>
+
+<% if (search) { %>
+  <p class="search-info">Showing results for "<strong><%= search %></strong>" — <%= members.length %> found.</p>
+<% } %>
+
+<% if (members.length === 0) { %>
+  <p class="empty">No members found. Try a different search or add a new member.</p>
+<% } else { %>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Type</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% members.forEach(function (member) { %>
+        <tr>
+          <td><%= member.full_name %></td>
+          <td><%= member.email %></td>
+          <td><%= member.phone %></td>
+          <td><%= member.member_type %></td>
+          <td>
+            <a href="/members/edit/<%= member.id %>" class="link-edit">Edit</a>
+            <form action="/members/delete/<%= member.id %>" method="POST" class="inline-form"
+                  onsubmit="return confirm('Delete this member?');">
+              <button type="submit" class="link-delete">Delete</button>
+            </form>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+<% } %>
+
+<%- include('../partials/footer') %>
