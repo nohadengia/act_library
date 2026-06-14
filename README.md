@@ -7,15 +7,12 @@ This project was built as a group assignment using Node.js, Express, EJS and Pos
 
 ## Group Members
 
-| No | Name | Responsibility |
-|----|------|----------------|
-| 1 | [Member 1 Name] | Backend development |
-| 2 | [Member 2 Name] | Frontend / UI (EJS) |
-| 3 | [Member 3 Name] | Database design |
-| 4 | [Member 4 Name] | Routing & middleware |
-| 5 | [Member 5 Name] | Testing & documentation |
+1. Munira Yesuf    007/BSC-B6/2024 
+2. Nebiyat Mesfin  173/BSC-B6/2023 
+3. Mikiyas Tsegaye 139/BSC-B6/2023
+4. Noha Dengia     035/BSC-B6/2023 
+5. Semhal Abebe    010/BSC-B6/2024
 
-> Replace the names above with your real group members before submitting.
 
 ## Features
 
@@ -113,5 +110,3 @@ act-library/
 
 Repository link: `https://github.com/<your-username>/<your-repo-name>`
 
-> Make sure every group member makes their own commits so individual
-> contributions show up in the commit history.
