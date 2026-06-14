@@ -1,0 +1,369 @@
+/* ACT College Library - styles
+   We made the UI more colorful and fun this time :) */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nunito', Arial, Helvetica, sans-serif;
+  background-color: #f3f1ff;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* ---- Navbar (fun gradient) ---- */
+.navbar {
+  background: linear-gradient(90deg, #7b2ff7, #f107a3);
+  color: white;
+  padding: 16px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.navbar .logo {
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 22px;
+}
+
+.navbar nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 14px;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.navbar nav a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.navbar nav a.active {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ---- Main container ---- */
+.container {
+  max-width: 980px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+h2 {
+  font-family: 'Baloo 2', sans-serif;
+  margin-bottom: 15px;
+  color: #5b2a9c;
+}
+
+h3 {
+  font-family: 'Baloo 2', sans-serif;
+}
+
+/* welcome box on the dashboard */
+.hero {
+  background: white;
+  border-radius: 14px;
+  padding: 22px 26px;
+  margin-bottom: 10px;
+  border-left: 8px solid #7b2ff7;
+  box-shadow: 0 4px 12px rgba(123, 47, 247, 0.08);
+}
+
+.section-title {
+  margin-top: 28px;
+  margin-bottom: 8px;
+  color: #5b2a9c;
+}
+
+/* ---- Dashboard cards ---- */
+.cards {
+  display: flex;
+  gap: 18px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: white;
+  border-radius: 14px;
+  padding: 20px;
+  flex: 1;
+  min-width: 150px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.15s;
+}
+
+/* make the cards lift up a little when you hover */
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-icon {
+  font-size: 30px;
+  margin-bottom: 6px;
+}
+
+.card h3 {
+  font-size: 30px;
+}
+
+.card p {
+  color: #666;
+  font-weight: 600;
+}
+
+/* each card gets its own colour */
+.card-blue   { border-top: 5px solid #3a86ff; }
+.card-green  { border-top: 5px solid #2ec4b6; }
+.card-purple { border-top: 5px solid #7b2ff7; }
+.card-red    { border-top: 5px solid #ef476f; }
+.card-orange { border-top: 5px solid #ff9f1c; }
+
+.card-blue h3   { color: #3a86ff; }
+.card-green h3  { color: #2ec4b6; }
+.card-purple h3 { color: #7b2ff7; }
+.card-red h3    { color: #ef476f; }
+.card-orange h3 { color: #ff9f1c; }
+
+/* ---- Tables ---- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  margin-top: 10px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+table th,
+table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+table th {
+  background-color: #7b2ff7;
+  color: white;
+}
+
+table tr:hover td {
+  background-color: #faf7ff;
+}
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-block;
+  background-color: #7b2ff7;
+  color: white;
+  padding: 9px 16px;
+  border: none;
+  border-radius: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  transition: transform 0.1s, background 0.2s;
+}
+
+.btn:hover {
+  background-color: #6a1fe0;
+  transform: translateY(-2px);
+}
+
+.btn-grey {
+  background-color: #9aa0a6;
+}
+
+.btn-grey:hover {
+  background-color: #7f868c;
+}
+
+.btn-red {
+  background-color: #ef476f;
+}
+
+.btn-red:hover {
+  background-color: #d63a60;
+}
+
+.btn-small {
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
+/* ---- Search bar ---- */
+.search-bar {
+  display: flex;
+  gap: 8px;
+  margin: 15px 0;
+  flex-wrap: wrap;
+}
+
+.search-bar input {
+  flex: 1;
+  min-width: 220px;
+  padding: 10px 14px;
+  border: 2px solid #d7c7f5;
+  border-radius: 20px;
+  font-size: 14px;
+  font-family: 'Nunito', sans-serif;
+}
+
+.search-bar input:focus {
+  outline: none;
+  border-color: #7b2ff7;
+}
+
+.search-info {
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.empty {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  color: #888;
+  text-align: center;
+}
+
+/* ---- Forms ---- */
+.form {
+  background: white;
+  padding: 24px;
+  border-radius: 14px;
+  max-width: 520px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.form label {
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 4px;
+  font-weight: 700;
+  color: #5b2a9c;
+}
+
+.form input,
+.form select {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #d7c7f5;
+  border-radius: 10px;
+  font-family: 'Nunito', sans-serif;
+}
+
+.form input:focus,
+.form select:focus {
+  outline: none;
+  border-color: #7b2ff7;
+}
+
+.form-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.page-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.quick-links {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* keep the delete form inline with the edit link */
+.inline-form {
+  display: inline;
+}
+
+.link-edit {
+  color: #7b2ff7;
+  margin-right: 8px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.link-edit:hover {
+  text-decoration: underline;
+}
+
+.link-delete {
+  background: none;
+  border: none;
+  color: #ef476f;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: underline;
+  font-family: 'Nunito', sans-serif;
+}
+
+.fine-text {
+  color: #ef476f;
+}
+
+/* ---- Status badges ---- */
+.badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.badge-borrowed {
+  background: #fff3cd;
+  color: #b35900;
+}
+
+.badge-returned {
+  background: #d4f5dd;
+  color: #2e7d32;
+}
+
+.badge-overdue {
+  background: #ffd6e0;
+  color: #c0143c;
+}
+
+/* happy message when nothing is overdue */
+.happy-box {
+  background: white;
+  border-radius: 14px;
+  padding: 30px;
+  text-align: center;
+  border-left: 8px solid #2ec4b6;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.happy-box h3 {
+  color: #2ec4b6;
+  font-size: 24px;
+}
+
+/* ---- Footer ---- */
+.footer {
+  text-align: center;
+  padding: 20px;
+  color: #999;
+  font-size: 13px;
+}
