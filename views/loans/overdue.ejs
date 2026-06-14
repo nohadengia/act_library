@@ -1,0 +1,61 @@
+<%- include('../partials/header', { title: 'Overdue & Fines' }) %>
+
+<h2>⏰ Overdue Books &amp; Fines</h2>
+<p class="search-info">Fine rate: <strong><%= finePerDay %> Birr</strong> for each day a book is late.</p>
+
+<% if (overdue.length === 0) { %>
+  <div class="happy-box">
+    <h3>🎉 No overdue books!</h3>
+    <p>Everyone returned their books on time. Great job!</p>
+  </div>
+<% } else { %>
+
+  <!-- Summary: how much each student owes in total -->
+  <h3 class="section-title">💰 Fines per Student</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Student</th>
+        <th>Overdue Books</th>
+        <th>Total Fine</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% summary.forEach(function (student) { %>
+        <tr>
+          <td><%= student.name %></td>
+          <td><%= student.books %></td>
+          <td><strong class="fine-text"><%= student.totalFine %> Birr</strong></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+
+  <!-- The full list of overdue books -->
+  <h3 class="section-title">📕 All Overdue Books</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Book</th>
+        <th>Student</th>
+        <th>Due Date</th>
+        <th>Days Late</th>
+        <th>Fine</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% overdue.forEach(function (item) { %>
+        <tr>
+          <td><%= item.book_title %></td>
+          <td><%= item.member_name %></td>
+          <td><%= item.due_date.toDateString() %></td>
+          <td><span class="badge badge-overdue"><%= item.days_late %> days</span></td>
+          <td><strong class="fine-text"><%= item.fine %> Birr</strong></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+
+<% } %>
+
+<%- include('../partials/footer') %>
