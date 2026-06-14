@@ -1,0 +1,27 @@
+<%- include('../partials/header', { title: 'Add Book' }) %>
+
+<h2>Add New Book</h2>
+
+<form action="/books/add" method="POST" class="form">
+  <label>Title</label>
+  <input type="text" name="title" required>
+
+  <label>Author</label>
+  <input type="text" name="author" required>
+
+  <label>ISBN</label>
+  <input type="text" name="isbn">
+
+  <label>Category</label>
+  <input type="text" name="category">
+
+  <label>Number of Copies</label>
+  <input type="number" name="total_copies" value="1" min="1" required>
+
+  <div class="form-buttons">
+    <button type="submit" class="btn">Save Book</button>
+    <a href="/books" class="btn btn-grey">Cancel</a>
+  </div>
+</form>
+
+<%- include('../partials/footer') %>
