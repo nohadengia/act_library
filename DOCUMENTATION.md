@@ -44,8 +44,12 @@ copies are still available. There is also a search box that finds books by
 title, author or category using SQL `ILIKE` (case-insensitive matching).
 
 ### Members
-Members can be added, edited and deleted. Each member has a name, email, phone
-and a type (Student, Teacher or Staff). Members can also be searched.
+1. Munira Yesuf    007/BSC-B6/2024 
+2. Nebiyat Mesfin  173/BSC-B6/2023 
+3. Mikiyas Tsegaye 139/BSC-B6/2023
+4. Noha Dengia     035/BSC-B6/2023 
+5. Semhal Abebe    010/BSC-B6/2024 
+
 
 ### Loans (Borrow & Return)
 When a member borrows a book:
