@@ -1,0 +1,64 @@
+<%- include('../partials/header', { title: 'Loans' }) %>
+
+<div class="page-head">
+  <h2>🔄 Loans (Borrow / Return)</h2>
+  <div>
+    <a href="/loans/overdue" class="btn btn-red">⏰ Overdue</a>
+    <a href="/loans/add" class="btn">➕ Borrow Book</a>
+  </div>
+</div>
+
+<% if (loans.length === 0) { %>
+  <p class="empty">No loan records yet. Click "Borrow Book" to lend a book to a member.</p>
+<% } else { %>
+  <table>
+    <thead>
+      <tr>
+        <th>Book</th>
+        <th>Member</th>
+        <th>Borrow Date</th>
+        <th>Due Date</th>
+        <th>Status</th>
+        <th>Fine</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% loans.forEach(function (loan) { %>
+        <tr>
+          <td><%= loan.book_title %></td>
+          <td><%= loan.member_name %></td>
+          <td><%= loan.borrow_date ? loan.borrow_date.toDateString() : '' %></td>
+          <td><%= loan.due_date ? loan.due_date.toDateString() : '' %></td>
+          <td>
+            <% if (loan.status === 'Returned') { %>
+              <span class="badge badge-returned">Returned</span>
+            <% } else if (loan.days_late > 0) { %>
+              <span class="badge badge-overdue">Overdue (<%= loan.days_late %> days)</span>
+            <% } else { %>
+              <span class="badge badge-borrowed">Borrowed</span>
+            <% } %>
+          </td>
+          <td>
+            <% if (loan.fine > 0) { %>
+              <strong class="fine-text"><%= loan.fine %> Birr</strong>
+            <% } else { %>
+              &mdash;
+            <% } %>
+          </td>
+          <td>
+            <% if (loan.status === 'Borrowed') { %>
+              <form action="/loans/return/<%= loan.id %>" method="POST" class="inline-form">
+                <button type="submit" class="btn btn-small">Return</button>
+              </form>
+            <% } else { %>
+              &mdash;
+            <% } %>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+<% } %>
+
+<%- include('../partials/footer') %>

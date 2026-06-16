@@ -1,0 +1,28 @@
+<%- include('../partials/header', { title: 'Edit Member' }) %>
+
+<h2>Edit Member</h2>
+
+<form action="/members/edit/<%= member.id %>" method="POST" class="form">
+  <label>Full Name</label>
+  <input type="text" name="full_name" value="<%= member.full_name %>" required>
+
+  <label>Email</label>
+  <input type="email" name="email" value="<%= member.email %>">
+
+  <label>Phone</label>
+  <input type="text" name="phone" value="<%= member.phone %>">
+
+  <label>Member Type</label>
+  <select name="member_type">
+    <option value="Student" <%= member.member_type === 'Student' ? 'selected' : '' %>>Student</option>
+    <option value="Teacher" <%= member.member_type === 'Teacher' ? 'selected' : '' %>>Teacher</option>
+    <option value="Staff" <%= member.member_type === 'Staff' ? 'selected' : '' %>>Staff</option>
+  </select>
+
+  <div class="form-buttons">
+    <button type="submit" class="btn">Update Member</button>
+    <a href="/members" class="btn btn-grey">Cancel</a>
+  </div>
+</form>
+
+<%- include('../partials/footer') %>

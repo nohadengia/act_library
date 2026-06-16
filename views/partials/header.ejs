@@ -1,0 +1,28 @@
+<!-- This is the header partial. We include it at the top of every page
+     so we don't have to repeat the navbar and <head> code everywhere.
+     (This is the "EJS partials / layout reuse" research part.) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= typeof title != 'undefined' ? title : 'ACT Library' %></title>
+  <!-- a friendly rounded font from Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <h1 class="logo">📚 ACT College Library</h1>
+    <nav>
+      <a href="/" class="<%= page === 'home' ? 'active' : '' %>">🏠 Dashboard</a>
+      <a href="/books" class="<%= page === 'books' ? 'active' : '' %>">📖 Books</a>
+      <a href="/members" class="<%= page === 'members' ? 'active' : '' %>">🧑‍🎓 Members</a>
+      <a href="/loans" class="<%= page === 'loans' ? 'active' : '' %>">🔄 Loans</a>
+      <a href="/loans/overdue" class="<%= page === 'overdue' ? 'active' : '' %>">⏰ Overdue</a>
+    </nav>
+  </header>
+
+  <main class="container">

@@ -1,0 +1,37 @@
+<%- include('../partials/header', { title: 'Borrow Book' }) %>
+
+<h2>Borrow a Book</h2>
+
+<% if (books.length === 0) { %>
+  <p>There are no books available to borrow right now.</p>
+<% } else if (members.length === 0) { %>
+  <p>You need to add a member first before borrowing.</p>
+<% } else { %>
+  <form action="/loans/add" method="POST" class="form">
+    <label>Book</label>
+    <select name="book_id" required>
+      <option value="">-- Select a book --</option>
+      <% books.forEach(function (book) { %>
+        <option value="<%= book.id %>"><%= book.title %> (<%= book.available_copies %> available)</option>
+      <% }); %>
+    </select>
+
+    <label>Member</label>
+    <select name="member_id" required>
+      <option value="">-- Select a member --</option>
+      <% members.forEach(function (member) { %>
+        <option value="<%= member.id %>"><%= member.full_name %></option>
+      <% }); %>
+    </select>
+
+    <label>Due Date</label>
+    <input type="date" name="due_date" required>
+
+    <div class="form-buttons">
+      <button type="submit" class="btn">Borrow</button>
+      <a href="/loans" class="btn btn-grey">Cancel</a>
+    </div>
+  </form>
+<% } %>
+
+<%- include('../partials/footer') %>
